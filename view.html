@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 3</title>
+    <link rel="stylesheet" href="https://bootswatch.com/5/solar/bootstrap.min.css">
+    <link rel="stylesheet" href="a3.css">
+    <script src="http://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div id="container">
+        <h1>Info about Movie</h1>
+        <button type="button" class="btn btn-dark" onclick="window.history.back();">Back to All Movies</button>
+
+        <table class="table table-striped">
+            <tr>
+                   
+                <th scope="col">Attributes</th>
+                <th scope="col">Values</th>
+               
+            </tr>
+
+            <tbody id="movie-info">
+               
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const movieDetails = {
+                movieNames: urlParams.get("movieNames"),
+                director: urlParams.get("director"),
+                filmRating: urlParams.get("filmRating"),
+                year: urlParams.get("year"),
+                genre: urlParams.get("genre"),
+                rottenTomatoesScore: urlParams.get("score")
+            };
+
+            $.each(movieDetails, function(key, value) {
+                const formattedKey = key.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/^./, function(str) {
+                    return str.toUpperCase();
+                });
+                $('<tr>').append(
+                    $('<td>').text(formattedKey),
+                    $('<td>').text(value)
+                ).appendTo('#movie-info');
+            });
+        });
+    </script>
+</body>
+</html>

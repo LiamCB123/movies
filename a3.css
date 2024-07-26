@@ -1,0 +1,35 @@
+#container{
+    text-align: center;
+    
+}
+h1{
+    color: wheat;
+    font-size: 500%;
+}
+ul{
+    background-color: black;
+}
+#movies-container{
+    display: inline-block;
+    list-style-type: none;
+    width: 80%;
+    
+}
+#containerCreate {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#createForm {
+    max-width: 600px;
+    margin: 0 auto;
+}
+#updateForm {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-control {
+    width: 100%;
+}
+
